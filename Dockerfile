@@ -1,7 +1,8 @@
 FROM node:0.12.2
 MAINTAINER Dan Lynn <docker@danlynn.org>
 
-RUN apt-get install zip
+RUN apt-get update
+RUN apt-get install -y zip
 RUN apt-get install -y python-pip
 RUN pip install awscli
 

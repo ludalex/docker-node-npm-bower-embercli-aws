@@ -7,6 +7,6 @@ RUN apt-get install -y python-pip
 RUN pip install awscli
 
 # Note: npm is v2.7.6
-RUN npm install -g ember-cli@1.13.12
+RUN npm install -g ember-cli@2.2.0-beta.1
 RUN npm install -g bower@1.5.2
 RUN npm install -g phantomjs@1.9.16

@@ -1,13 +1,19 @@
-FROM node:4.4.3
-MAINTAINER Dan Lynn <docker@danlynn.org>
+FROM node:7.3
+MAINTAINER Luca D'Alessandro <ludalex@gmail.com>
 
-RUN apt-get update
-RUN apt-get install -y zip
-RUN apt-get install -y python-pip
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - \ 
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+RUN apt-get update \
+    apt-get install -y yarn zip python-pip
+    
 RUN pip install awscli
 
-# Note: npm is v2.14.20
-RUN npm install -g ember-cli #@2.4.3
-RUN npm install -g bower #@1.5.3
-#RUN npm install -g phantomjs@1.9.16
-RUN npm install -g phantomjs-prebuilt 
+# RUN npm install -g ember-cli 
+# RUN npm install -g bower
+# RUN npm install -g phantomjs-prebuilt 
+
+RUN yarn global add -g ember-cli \
+    yarn global add -g bower \
+    yarn global add -g phantomjs-prebuilt \
+

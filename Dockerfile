@@ -11,6 +11,8 @@ RUN DEBIAN_FRONTEND=noninteractive \
     apt-get clean && \
     rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
+RUN export PATH="$PATH:`yarn global bin`"    
+    
 RUN pip install awscli
 
 # RUN npm install -g ember-cli 

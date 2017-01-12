@@ -20,4 +20,4 @@ RUN pip install awscli
 # RUN npm install -g bower
 # RUN npm install -g phantomjs-prebuilt 
 
-RUN yarn global add ember-cli && yarn global add && phantomjs-prebuilt 
+RUN yarn global add ember-cli && yarn global add bower && phantomjs-prebuilt 

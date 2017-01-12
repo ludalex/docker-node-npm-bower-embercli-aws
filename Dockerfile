@@ -8,7 +8,7 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 
 RUN apt-get update && apt-get install --fix-missing && \
     DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y --no-install-recommends yarn zip python-pip && \
+    apt-get install -y --no-install-recommends -qq yarn=0.18.1-1 zip python-pip && \
     apt-get clean && \
     rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
@@ -20,5 +20,6 @@ RUN pip install awscli
 # RUN npm install -g bower
 # RUN npm install -g phantomjs-prebuilt 
 
-RUN yarn global add -g ember-cli bower phantomjs-prebuilt 
+RUN yarn global add ember-cli
+RUN yarn global add -g bower phantomjs-prebuilt 
 
